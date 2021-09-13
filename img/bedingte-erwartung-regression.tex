@@ -1,0 +1,50 @@
+\documentclass[margin=2mm]{standalone}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{tudscrcolor} 
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween} 
+\pgfplotsset{
+  compat=1.10,
+  flaeche/.style={draw=none,fill=black,fill opacity=0.2},
+  every axis/.append style={
+  	axis x line=middle,  
+  	axis y line=middle, 
+  	axis line style={->},  % arrows on the axis
+  }
+}
+
+\usepackage{opensans}
+%\usepackage{sfmath}
+
+\begin{document} 
+
+\begin{tikzpicture} 
+	\begin{axis}[%
+		xmin = 0,
+		xmax =  10,
+		ymin = 0,
+		ymax =  5,
+%		axis equal,
+%		ticks=none,
+		grid=none,
+		xlabel=$y$,
+		xlabel style={below, anchor=south east,inner xsep=0pt},
+		ylabel={$\mathbb{E}[X | Y=y]$},
+		ylabel style={above,anchor=north west,inner ysep=0pt},
+%		tick style={ultra thick, black},
+		xtick = {4},
+		xticklabels = {$\mu_Y$},
+%		tick style={ultra thick, black}, 
+		ytick = {2},
+		yticklabels= {$\mu_X$}, 
+	]
+	
+		\addplot [domain=0:10, smooth, color=cdblue, thick, samples=5, variable=\x] {0.5*x};
+		
+		\draw[dashed] (axis cs: 0,2) -- (axis cs: 4,2) -- (axis cs: 4,0);
+		
+		\draw (axis cs: 4,2) -- node[below] {$\sigma_X$}  (axis cs: 7,2) -- node[right] {$\rho \sigma_Y$} (axis cs: 7,3.5);
+	\end{axis} 
+\end{tikzpicture} 
+
+\end{document}
