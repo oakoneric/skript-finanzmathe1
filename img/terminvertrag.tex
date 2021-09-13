@@ -1,0 +1,71 @@
+\documentclass[margin=2mm]{standalone}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{tudscrcolor} 
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween} 
+\pgfplotsset{
+  compat=1.10,
+  flaeche/.style={draw=none,fill=black,fill opacity=0.2},
+  every axis/.append style={
+  	axis x line=middle,  
+  	axis y line=middle, 
+  	axis line style={->},  % arrows on the axis
+  }
+}
+
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+
+\usepackage{opensans}
+%\usepackage{sfmath}
+
+\begin{document} 
+
+\begin{tikzpicture} 
+	\begin{axis}[%
+		xmin = 0,
+		xmax =  10,
+		ymin = -3,
+		ymax =  3,
+		axis equal,
+%		ticks=none,
+		grid=none,
+		xlabel=$S_T$,
+		xlabel style={below, anchor=south east,inner xsep=0pt},
+		ylabel=$F_T$,
+		ylabel style={above,anchor=north west,inner ysep=0pt},
+%		tick style={ultra thick, black},
+		xtick = {},
+		xmajorticks=false,
+		xticklabels = {},
+%		tick style={ultra thick, black}, 
+		ymajorticks=false,
+		ytick = {},
+		yticklabels= {}, 
+	]
+	
+		\addplot [domain=0:10, smooth, color=cdblue, thick, samples=100, variable=\x] {x - 4};
+		
+		
+%		\addplot [domain=0:6.28, smooth, color=cdgreen, dashed, variable=\x] {0.5};
+%	
+		
+%		\legend{$\sin(x)$, $\cos(x)$}
+		
+		\addplot [only marks, mark=o, mark size = 2pt, draw=black]
+		coordinates { (4, 0)};
+		
+		\node[align=left] at (axis cs: 4.25, -0.5) {$K$};
+		
+	\end{axis} 
+
+%	\node[above,font=\bfseries] at (current bounding box.north) {$z = 1 - \sqrt{3} i = r \cdot e^{i \varphi}$};
+	
+\end{tikzpicture} 
+
+
+
+
+
+
+\end{document}
