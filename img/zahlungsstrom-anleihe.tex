@@ -1,0 +1,46 @@
+\documentclass[margin=2mm]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{tudscrcolor} 
+\usepackage{pgfplots}
+\usetikzlibrary{positioning} 
+\pgfplotsset{
+  compat=1.10,
+  flaeche/.style={draw=none,fill=black,fill opacity=0.2},
+  every axis/.append style={
+  	axis x line=middle,  
+  	axis y line=middle, 
+  	axis line style={->},  % arrows on the axis
+  }
+}
+
+
+\usepackage{opensans}
+%\usepackage{sfmath}
+
+\begin{document} 
+
+\begin{tikzpicture} 
+	
+	\coordinate (start) at (0,0);
+	
+	\draw[->] (start) -- (5,0) node[label=right:{$t$}] {}; 
+
+	\node[above left=1cm and 2cm of start, anchor=west] (kaeufer) {Käufer};
+	\node[below left=1cm and 2cm of start, anchor=west] (emittent) {Emittent};
+	
+	\draw (0,-0.2) -- (0,0.2) node [label=above:{$t=0$}] {};
+	\draw (3,0.2) -- (3,-0.2) node [label=below:{$t=T$}] {};
+	
+	\draw[-latex, ultra thick, ] (start) -- (0, -3) node [label=right:{$N \cdot B(0,T)$}] {};
+	\draw[-latex, ultra thick] ((3,0) -- (3, 2) node [label=right:{$N$}] {};
+	
+	
+\end{tikzpicture} 
+
+
+
+
+
+
+\end{document}
