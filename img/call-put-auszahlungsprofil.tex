@@ -1,0 +1,106 @@
+\documentclass[margin=2mm]{standalone}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{tudscrcolor} 
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween} 
+\pgfplotsset{
+  compat=1.10,
+  flaeche/.style={draw=none,fill=black,fill opacity=0.2},
+  every axis/.append style={
+  	axis x line=middle,  
+  	axis y line=middle, 
+  	axis line style={->},  % arrows on the axis
+  }
+}
+
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+
+\usepackage{opensans}
+%\usepackage{sfmath}
+
+\begin{document} 
+
+\begin{tikzpicture} 
+	\begin{axis}[%
+		xmin = 0,
+		xmax =  10,
+		ymin = 0,
+		ymax =  3,
+		axis equal,
+%		ticks=none,
+		grid=none,
+		xlabel=$S_T$,
+		xlabel style={below, anchor=south east,inner xsep=0pt},
+		ylabel=$C_T$,
+		ylabel style={above,anchor=north west,inner ysep=0pt},
+%		tick style={ultra thick, black},
+		xtick = {},
+		xmajorticks=false,
+		xticklabels = {},
+%		tick style={ultra thick, black}, 
+		ymajorticks=false,
+		ytick = {},
+		yticklabels= {}, 
+	]
+	
+		\addplot [domain=0:4, smooth, color=cdblue, thick, samples=100, variable=\x] {0};
+		\addplot [domain=4:10, smooth, color=cdblue, thick, samples=100, variable=\x] {x - 4};
+		
+		\addplot [only marks, mark=o, mark size = 2pt, draw=black]
+		coordinates { (4, 0)};
+		
+		\node[align=left] at (axis cs: 4.25, -0.5) {$K$};
+		
+		\node[anchor=west] at (axis cs: 1, -2) {\resizebox{5cm}{!}{$C_T = \left( S_T - K \right)_+ = \begin{cases} S_T - K & S_T \ge K \\ 0 & S_T < K \end{cases}$}};
+		
+	\end{axis} 
+
+	\node[above,font=\bfseries] at (current bounding box.north) {Call-Option};
+	
+\end{tikzpicture} 
+
+\hspace{1em}
+
+\begin{tikzpicture} 
+	\begin{axis}[%
+		xmin = 0,
+		xmax =  10,
+		ymin = 0,
+		ymax =  3,
+		axis equal,
+		%		ticks=none,
+		grid=none,
+		xlabel=$S_T$,
+		xlabel style={below, anchor=south east,inner xsep=0pt},
+		ylabel=$P_T$,
+		ylabel style={above,anchor=north west,inner ysep=0pt},
+		%		tick style={ultra thick, black},
+		xtick = {},
+		xmajorticks=false,
+		xticklabels = {},
+		%		tick style={ultra thick, black}, 
+		ymajorticks=false,
+		ytick = {},
+		yticklabels= {}, 
+		]
+		
+		\addplot [domain=0:4, smooth, color=cdblue, thick, samples=100, variable=\x] {-x+4};
+		\addplot [domain=4:10, smooth, color=cdblue, thick, samples=100, variable=\x] {0};
+				
+		\addplot [only marks, mark=o, mark size = 2pt, draw=black]
+		coordinates { (4, 0)};
+		
+		\node[align=left] at (axis cs: 4.25, -0.5) {$K$};
+		
+		\node[anchor=west] at (axis cs: 1, -2) {\resizebox{5cm}{!}{$P_T = \left(K - S_T \right)_+ = \begin{cases} 0 & S_T \ge K \\ K - S_T & S_T < K \end{cases} $}};
+	\end{axis} 
+	
+	\node[above,font=\bfseries] at (current bounding box.north) {Put-Option};
+	
+\end{tikzpicture} 
+
+
+
+
+\end{document}
