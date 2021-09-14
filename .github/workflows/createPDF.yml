@@ -27,12 +27,10 @@ jobs:
 
       # Runs a single command using the runners shell        
       - name: Compilation
-        uses: vinay0410/tectonic-action@master
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: hspaans/latexmk-action@v1.1.0
         with:
-          tex_path: 'stochv_vorlesung_main.tex'
-          # push: 'yes'
+          format: pdf
+          filename: stochv_vorlesung_main.tex
 
       # Runs a set of commands using the runners shell
       - name: Completed
