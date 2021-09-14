@@ -28,6 +28,8 @@ jobs:
       # Runs a single command using the runners shell        
       - name: Github Action for LaTeX
         uses: xu-cheng/latex-action@v2
+        with:
+          root_file: "stochv_vorlesung_main.tex"
 
       # Runs a set of commands using the runners shell
       - name: Completed
