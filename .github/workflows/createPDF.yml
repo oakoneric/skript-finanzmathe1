@@ -26,10 +26,13 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell        
-      - name: Github Action for LaTeX
-        uses: dante-ev/latex-action@latest
+      - name: Compilation
+        uses: vinay0410/tectonic-action@master
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          root_file: "stochv_vorlesung_main.tex"
+          tex_path: 'dir/file.tex'
+          # push: 'yes'
 
       # Runs a set of commands using the runners shell
       - name: Completed
