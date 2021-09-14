@@ -475,7 +475,8 @@
 \NewDocumentCommand{\folge}{m m}{\left( #1 \right)_{#2}}
 
 \renewcommand{\F}{\mathcal{F}}
-\renewcommand{\G}{\mathcal{G}}
+\let\G\undefined
+\newcommand{\G}{\mathcal{G}}
 
 \DeclareMathOperator{\ACall}{AC}
 \DeclareMathOperator{\APut}{AP}
