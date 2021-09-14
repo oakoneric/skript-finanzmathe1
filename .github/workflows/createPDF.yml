@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell        
       - name: Github Action for LaTeX
-        uses: xu-cheng/latex-action@v2
+        uses: dante-ev/latex-action@latest
         with:
           root_file: "stochv_vorlesung_main.tex"
 
