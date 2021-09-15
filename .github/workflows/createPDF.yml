@@ -41,6 +41,8 @@ jobs:
           
       - name: Add PDF to repository
         run: |
+          git config user.email "k-eric@outlook.com"
+          git config user.name "Eric Kunze"
           git add stochv_vorlesung_main.pdf
           git commit -m "Update PDF-Datei"
           git push
