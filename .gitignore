@@ -1,2 +1,21 @@
 .github/workflows/
 desktop.ini
+
+# ignore temporary tex compilation files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.thm
+*.idx
+*.toc
+*.snm
+*.nav
+*.bbg
+*.bbl
+*.vrb
+*.blg
+*.upa
+*.upb
+*.md5
+*.figlist
