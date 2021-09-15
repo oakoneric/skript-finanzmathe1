@@ -161,49 +161,6 @@
 \pagestyle{myStyle}
 \pagenumbering{arabic}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TITLEPAGE
-\newcommand{\makeTUtitle}[1][]{%
-    \begin{titlepage}
-        \pagecolor{cddarkblue!90}
-        \color{white}
-
-        \raggedright
-        \fosfamily
-        \setlength{\parindent}{0pt}
-
-        \hspace{-18.6mm} %
-        \includegraphics[scale=0.6]{TUD-white.pdf} \\
-        %       \includegraphics[scale=0.6]{TUD-blue.pdf} \\
-
-        \vspace{3mm}
-        \begin{tabular}{m{\textwidth}}
-            \hline
-            \hspace{-4pt}\small{\textbf{Fakultät Mathematik} Institut für Stochastik, Professur für Stoch. Analysis und Finanzmathematik} \\
-            \hline
-        \end{tabular} \\
-
-        \vspace{5cm}
-        {\Huge\bfseries \MakeUppercase Vertiefung in der Stochastik \par}
-        %
-        \ifthenelse{\isempty{#1}}{}{
-            \vspace{0.5cm}%
-            {\Large \itshape #1} \\%
-        }
-        %
-        \vspace{1.5cm}
-        \textbf{{\Large Prof. Dr. Martin Keller-Ressel}} \par
-        \vspace{0.5cm}
-        {\large Wintersemester 2019/20}
-
-        \vfill
-        \begin{tabular}{lll}
-            Mitschrift  & : & Eric Kunze \\
-            E-Mail      & : & \href{mailto:eric.kunze@tu-dresden.de}{eric.kunze@tu-dresden.de} \\
-        \end{tabular}
-    \end{titlepage}
-    \nopagecolor
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MATH ENVIRONMENTS
@@ -525,9 +482,7 @@
 		\end{minipage}
 		\begin{minipage}{\dimexpr0.25\linewidth-\fboxrule-\fboxsep}
 			\flushright
-			\href{%
-				https://github.com/oakoneric/skript-finanzmathe1
-			}{%
+			\href{https://github.com/oakoneric/skript-finanzmathe1}{%
 				\includegraphics[width=8em]{img/GitHub-Logo-White.png}%
 			}
 		\end{minipage}
