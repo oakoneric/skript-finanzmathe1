@@ -30,8 +30,7 @@
 
 % new font OpenSans
 \usepackage[scale=1]{opensans}
-\newcommand*{\osfamily}{\fontfamily{fos}\selectfont}
-\DeclareTextFontCommand{\textos}{\osfamily}
+\DeclareTextFontCommand{\textos}{\fosfamily}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TABLE OF CONTENTS
@@ -66,7 +65,7 @@
 \usepackage{titlesec}   % change title headings look
 \usepackage{relsize}    % relative font size (smaller[i], larger[i], ...)
 
-\newcommand{\titlefont}{\osfamily}
+\newcommand{\titlefont}{\fosfamily}
 \newcommand{\chaptersize}{\huge}
 \newcommand{\sectionsize}{\LARGE}
 
@@ -119,7 +118,7 @@
             \node [
                 fill=none,  % Farbe des Randstreifens
                 text=gray,  % Textfarbe
-                font=\osfamily\normalsize,  % Einstellungen für die Schrift
+                font=\fosfamily\normalsize,  % Einstellungen für die Schrift
                 inner xsep=\footskip,       % Abstand des Textes von unten
                 % maximale Textbreite = Papierhöhe - 2*Abstand des Textes von unten:
                 text width={\dimexpr\paperheight-2\footskip\relax},
@@ -194,7 +193,7 @@
 % innerbottommargin=3pt,%
 % % leftmargin=-4pt,%
 % rightmargin=-10pt,%
-% frametitlefont=\osfamily\bfseries,%
+% frametitlefont=\fosfamily\bfseries,%
 % skipabove=5pt,%
 % skipbelow=5pt,%
 % % skipabove=6pt,%
@@ -206,7 +205,7 @@
 
 \theoremstyle{plain}
 \theoremseparator{}
-\theoremheaderfont{\osfamily \bfseries \upshape}
+\theoremheaderfont{\fosfamily \bfseries \upshape}
 \theorembodyfont{}
 
 % DEFINTION
@@ -308,7 +307,7 @@
 ]{korollar}[thmcount]{Korollar}
 
 \theoremstyle{plain}
-\theoremheaderfont{\osfamily \bfseries}
+\theoremheaderfont{\fosfamily \bfseries}
 \theorembodyfont{}
 
 \newtheorem{beispiel}[defcount]{Beispiel}
@@ -317,7 +316,7 @@
 \newtheorem{bemerkung}[defcount]{Bemerkung}
 % theorems without numbers
 \theoremstyle{nonumberplain}
-\theoremheaderfont{\osfamily \bfseries}
+\theoremheaderfont{\fosfamily \bfseries}
 \theorembodyfont{}
 \theoremseparator{.}
 
@@ -387,20 +386,19 @@
 % HYPERLINKS
 \usepackage[unicode,bookmarks=true]{hyperref}
 \hypersetup{
-    %pdfborder={0 0 0}         % no boxed around links
-    pdfborderstyle={/S/U/W 1},  % underlining insteas of boxes
-    linkbordercolor=cdblue,
-    urlbordercolor=cdpurple,
-    citebordercolor=cddarkgreen,
-%    colorlinks,
-%    linkcolor=cdblue,
-%    urlcolor=cdpurple!60
-%    citecolor=cddarkgreen,
-%    filecolor=cddarkblue!80,
+	pdfborder={0 0 0},			% no boxed around links
+	% pdfborderstyle={/S/U/W 1},	% underlining insteas of boxes
+	% linkbordercolor=cdblue,
+	% urlbordercolor=cdblue
+	colorlinks,
+	citecolor=cdgreen,
+	filecolor=cdpurple,
+	linkcolor=cdblue,
+	urlcolor=cddarkblue,
 }
 \usepackage{bookmark}       % pdf-bookmarks
 
-\usepackage{cleveref}
+\usepackage[nameinlink]{cleveref}
 \crefname{theorem}{Theorem}{Theoreme}
 \crefname{satz}{Satz}{Sätze}
 \crefname{lemma}{Lemma}{Lemmata}
@@ -442,26 +440,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-	
+
 	\begin{titlepage}
 		\pagecolor{cddarkblue!90}
 		\color{white}
-		
+		\hypersetup{pdfborderstyle={/S/U/W 1}, allcolors=., urlbordercolor=cdblue}
+
 		\raggedright
 		\fosfamily
 		\setlength{\parindent}{0pt}
-		
+
 		\hspace{-18.6mm} %
 		\includegraphics[scale=0.6]{TUD-white.pdf} \\
 		%       \includegraphics[scale=0.6]{TUD-blue.pdf} \\
-		
+
 		\vspace{3mm}
 		\begin{tabular}{m{\textwidth}}
 			\hline
 			\hspace{-4pt}\small{\textbf{Fakultät Mathematik} Institut für Stochastik, Professur für Stoch. Analysis und Finanzmathematik} \\
 			\hline
 		\end{tabular} \\
-		
+
 		\vspace{5cm}
 		{\Huge\bfseries \MakeUppercase Vertiefung in der Stochastik \par}
 		%
@@ -472,7 +471,7 @@
 		\textbf{{\Large Prof. Dr. Martin Keller-Ressel}} \par
 		\vspace{0.5cm}
 		{\large Wintersemester 2019/20}
-		
+
 		\vfill
 		\begin{minipage}{\dimexpr0.75\linewidth-\fboxrule-\fboxsep}
 			\begin{tabular}{lll}
@@ -489,12 +488,12 @@
 	\end{titlepage}
 	\nopagecolor
 
-    
+
     \tableofcontents
-    
+
     \vfill
     {\footnotesize \doclicenseThis }
-    
+
     \chapter{Einführung}
     \label{chapter_1_einfuehrung}
     \input{stochv_1_1_zentraleFragestellungen}
@@ -502,18 +501,18 @@
     \input{stochv_1_3_anleihenBeispieleDerivate}
     \input{stochv_1_4_replikationsArbitrage}
     \input{stochv_1_5_bedingterErwartungswertMartingale}
-    
+
     \chapter{Cox-Ross-Rubinstein-Modell}
     \label{chapter_2_crr}
     \input{stochv_2_0_einfuehrung}
     \input{stochv_2_1_anlagestrategien}
     \input{stochv_2_2_replikationCRR}
     \input{stochv_2_3_martingalmassArbitrageCRR}
-    
+
     \chapter{Das Black-Scholes-Modell}
     \label{chapter_3_blackScholes}
     \input{stochv_3_0_einfuehrung}
-    
+
     \chapter{Optimale Investition}
     \label{chapter_4_optimaleInvesition}
     \input{stochv_4_1_anlageproblem}
@@ -521,7 +520,7 @@
     \input{stochv_4_3_markowitzModelle}
     \input{stochv_4_4_capitalAssetPricingModel}
     \input{stochv_4_5_praeferenzordnungenErwartungsnutzen}
-    
+
     \chapter{Risikomaße}
     \label{chapter_5_risikomasse}
     \input{stochv_5_0_einfuehrung}
@@ -529,12 +528,12 @@
     \input{stochv_5_2_expectedShortfall}
     \input{stochv_5_3_risikomasseAxiomatik}
     \input{stochv_5_4_verteilteRisiken}
-    
+
     \chapter{Optimales Stoppen \& Amerikanische Optionen}
     \label{chapter_6_optimalesStoppen}
     \input{stochv_6_0_einfuehrung}
     \input{stochv_6_1_optimalesStoppproblem}
     \input{stochv_6_2_amerikanischeOptionen}
-    
+
     \vfill \hfill $\square$
 \end{document}
